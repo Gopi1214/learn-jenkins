@@ -43,7 +43,7 @@ pipeline {
                    echo "hello AMMA I love you so much amma I am ready to sacrifice my life for you"
                    echo "$GREETING"
                    sleep 20
-                   echo "Toggle: $(params.TOGGLE)
+                   echo "Toggle: ${params.TOGGLE}
                 """
             }
         }
