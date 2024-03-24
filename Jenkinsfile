@@ -18,6 +18,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 echo "good morning"
+                sleep 20
             }
         }
     }
