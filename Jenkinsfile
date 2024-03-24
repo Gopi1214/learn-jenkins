@@ -30,6 +30,7 @@ pipeline {
                 sh """
                    echo "hello AMMA I love you so much amma I am ready to sacrifice my life for you"
                    echo "$GREETING"
+                   sleep 20
                 """
             }
         }
