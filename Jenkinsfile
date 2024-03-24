@@ -11,6 +11,17 @@ pipeline {
     environment { 
         GREETING = 'I will not stop anymore'
     }
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+
+        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+    }
     // Build
     stages {
         stage('Build') { 
@@ -21,6 +32,7 @@ pipeline {
         stage('Test') { 
             steps {
                 echo "hi"
+
             }
         }
         stage('Deploy') { 
@@ -31,6 +43,7 @@ pipeline {
                    echo "hello AMMA I love you so much amma I am ready to sacrifice my life for you"
                    echo "$GREETING"
                    sleep 20
+                   echo "Toggle: $(params.TOGGLE)
                 """
             }
         }
