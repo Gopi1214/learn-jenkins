@@ -5,7 +5,7 @@ pipeline {
             } 
         }
     options {
-        timeout(time: 5, unit: 'SECONDS')
+        timeout(time: 10, unit: 'SECONDS')
         disableConcurrentBuilds()
     }
     environment { 
@@ -30,7 +30,6 @@ pipeline {
                 sh """
                    echo "hello AMMA I love you so much amma I am ready to sacrifice my life for you"
                    echo "$GREETING"
-                   sleep 30
                 """
             }
         }
