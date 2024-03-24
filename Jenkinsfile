@@ -4,9 +4,13 @@ pipeline {
             label 'AGENT-1' 
             } 
         }
+    options {
+        timeout(time: 3, unit: 'SECOND')
+    }
     environment { 
         GREETING = 'I will not stop anymore'
     }
+    { disableConcurrentBuilds() }
     // Build
     stages {
         stage('Build') { 
@@ -22,10 +26,11 @@ pipeline {
         stage('Deploy') { 
             steps {
         
-                // sleep 35
+                
                 sh """
                    echo "hello AMMA I love you so much amma I am ready to sacrifice my life for you"
-                   echo $GREETING
+                   echo "$GREETING"
+                   sleep 30
                 """
             }
         }
