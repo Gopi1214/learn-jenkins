@@ -43,8 +43,21 @@ pipeline {
                    echo "hello AMMA I love you so much amma I am ready to sacrifice my life for you"
                    echo "$GREETING"
                    sleep 20
-                   echo "Toggle: ${params.TOGGLE}
                 """
+            }
+        }
+        stage('check params') {
+            steps {
+                echo "Hello ${params.PERSON}"
+
+                echo "Biography: ${params.BIOGRAPHY}"
+
+                echo "Toggle: ${params.TOGGLE}"
+
+                echo "Choice: ${params.CHOICE}"
+
+                echo "Password: ${params.PASSWORD}"
+
             }
         }
     }
