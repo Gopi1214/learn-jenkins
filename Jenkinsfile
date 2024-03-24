@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                echo "good morning"
+        
                 // sleep 35
                 sh """
                 echo "hello AMMA"
