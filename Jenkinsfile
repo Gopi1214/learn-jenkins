@@ -4,6 +4,9 @@ pipeline {
             label 'AGENT-1' 
             } 
         }
+    environment { 
+        CC = 'clang'
+    }
     stages {
         stage('Build') { 
             steps {
@@ -21,6 +24,7 @@ pipeline {
                 // sleep 35
                 sh """
                 echo "hello AMMA"
+                env:$CC
                 """
             }
         }
