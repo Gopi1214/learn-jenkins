@@ -24,7 +24,7 @@ pipeline {
         
                 // sleep 35
                 sh """
-                   echo "hello AMMA I love you so much amma I am ready to sacrifice my life you"
+                   echo "hello AMMA I love you so much amma I am ready to sacrifice my life for you"
                    env
                 """
             }
