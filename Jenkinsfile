@@ -5,7 +5,7 @@ pipeline {
             } 
         }
     environment { 
-        CC = 'clang'
+        GREETING = 'I will not stop anymore'
     }
     // Build
     stages {
