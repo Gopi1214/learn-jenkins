@@ -7,6 +7,7 @@ pipeline {
     environment { 
         CC = 'clang'
     }
+    // Build
     stages {
         stage('Build') { 
             steps {
@@ -23,12 +24,13 @@ pipeline {
         
                 // sleep 35
                 sh """
-                echo "hello AMMA"
-                env:$CC
+                   echo "hello AMMA I love you so much amma I am ready to sacrifice my life you"
+                   env
                 """
             }
         }
     }
+    // Post Build
     post { 
         always { 
             echo 'I will always say Hello again!'
