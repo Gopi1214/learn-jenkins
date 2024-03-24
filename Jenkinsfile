@@ -6,11 +6,11 @@ pipeline {
         }
     options {
         timeout(time: 3, unit: 'SECOND')
+        disableConcurrentBuilds()
     }
     environment { 
         GREETING = 'I will not stop anymore'
     }
-    { disableConcurrentBuilds() }
     // Build
     stages {
         stage('Build') { 
