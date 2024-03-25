@@ -40,8 +40,10 @@ pipeline {
             }
         }
         stage('Deploy') { 
-            when {
-                 params.CHOICE ==  "apply"
+            when { 
+                expression { 
+                    return params.CHOICE ==  "apply"
+                } 
             }
             steps {
                        
