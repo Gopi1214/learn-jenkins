@@ -5,6 +5,7 @@ pipeline {
             } 
         }
     options {
+        ansiColor('xterm')
         timeout(time: 1, unit: 'HOURS')
         disableConcurrentBuilds()
     }
@@ -12,15 +13,15 @@ pipeline {
         GREETING = 'I will not stop anymore'
     }
     parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+        // string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
 
-        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+        // text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+        // booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
 
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+        choice(name: 'CHOICE', choices: ['apply', 'destroy'], description: 'Pick something')
 
-        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+        // password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
     // Build
     stages {
@@ -30,15 +31,20 @@ pipeline {
             }
         }
         stage('Test') { 
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                }
             steps {
                 echo "hi"
-
             }
         }
         stage('Deploy') { 
+            when {
+                 ${params.CHOICE} == "apply"
+            }
             steps {
-        
-                
+                       
                 sh """
                    echo "hello AMMA I love you so much amma I am ready to sacrifice my life for you"
                    echo "$GREETING"
