@@ -19,7 +19,7 @@ pipeline {
 
         // booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
 
-        choice(name: 'CHOICE', choices: ['apply', 'destroy'], description: 'Pick something')
+        choice(name: 'options', choices: ['apply', 'destroy'], description: 'Pick something')
 
         // password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
@@ -42,7 +42,7 @@ pipeline {
         stage('apply') { 
             when { 
                 expression { 
-                    params.CHOICE ==  "apply"
+                    params.options ==  "apply"
                 } 
             }
             steps {
@@ -57,7 +57,7 @@ pipeline {
         stage('destroy') { 
             when { 
                 expression { 
-                    params.CHOICE ==  "destroy"
+                    params.options ==  "destroy"
                 } 
             }
             steps {
