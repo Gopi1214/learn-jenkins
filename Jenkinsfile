@@ -36,12 +36,12 @@ pipeline {
                 ok "Yes, we should."
                 }
             steps {
-                echo "hi"
+                echo "hi AMMA"
             }
         }
         stage('Deploy') { 
             when {
-                 ${params.CHOICE} == "apply"
+                 params.CHOICE == "apply"
             }
             steps {
                        
