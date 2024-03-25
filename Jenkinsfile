@@ -39,10 +39,10 @@ pipeline {
                 echo "hi AMMA"
             }
         }
-        stage('Deploy') { 
+        stage('apply') { 
             when { 
                 expression { 
-                    return params.CHOICE ==  "apply"
+                    params.CHOICE ==  "apply"
                 } 
             }
             steps {
@@ -54,21 +54,36 @@ pipeline {
                 """
             }
         }
-        stage('check params') {
+        stage('destroy') { 
+            when { 
+                expression { 
+                    params.CHOICE ==  "destroy"
+                } 
+            }
             steps {
+                       
                 sh """
-                    echo "Hello ${params.PERSON}"
-
-                    echo "Biography: ${params.BIOGRAPHY}"
-
-                    echo "Toggle: ${params.TOGGLE}"
-
-                    echo "Choice: ${params.CHOICE}"
-
-                    echo "Password: ${params.PASSWORD}"
+                   echo "hello AMMA I love you so much amma I am ready to sacrifice my life for you"
+                   echo "$GREETING"
+                   #sleep  30
                 """
             }
         }
+        // stage('check params') {
+        //     steps {
+        //         sh """
+        //             echo "Hello ${params.PERSON}"
+
+        //             echo "Biography: ${params.BIOGRAPHY}"
+
+        //             echo "Toggle: ${params.TOGGLE}"
+
+        //             echo "Choice: ${params.CHOICE}"
+
+        //             echo "Password: ${params.PASSWORD}"
+        //         """
+        //     }
+        // }
     }
     // Post Build
     post { 
